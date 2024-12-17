@@ -1,8 +1,8 @@
 # Instagram Emoji Pong Bot
 This project uses OpenCV and PyQt5 to detect a ball and paddle from a screen capture of the Emoji Pong game on Instagram and predict the ball's trajectory. It features real-time updates, trajectory visualization using an overlay window, and automated interaction via PyAutoGUI.
-# NOTES
-- MOST ERRORS THAT OCCUR ARE DUE TO INSTAGRAM'S GAME NOT BEING CORRECTLY CODED - the ball does NOT bounce perfectly off the edge of the screen
-- Will work with different screen sizes as long as the size of the ball and paddle are relatively similar
+Notes:
+- MOST ERRORS THAT OCCUR ARE DUE TO INSTAGRAM'S GAME NOT BEING CORRECTLY CODED - the ball does NOT bounce perfectly off the edge of the screen.
+- This program works with different screen sizes and can be easily modified to also play similar variations of pong.
 # Features
 -  Takes screenshots of the user's screen and identifies where on the screen the game is being played.
 -  Uses contour detection and bounding shapes to identify the location of the ball and paddle.
