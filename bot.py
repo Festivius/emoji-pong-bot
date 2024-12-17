@@ -69,7 +69,7 @@ def capture():
     with mss.mss() as sct:
         if w == 0:
             return sct.grab(sct.monitors[0])
-        monitor = {"left": x, "top": y, "width": w, "height": h}  # Adjust based on BlueStacks region
+        monitor = {"left": x, "top": y, "width": w, "height": h}
         return sct.grab(monitor)
 
 
@@ -123,15 +123,12 @@ def find_border(frame):
 
 
 def wait():
-    print('wait1')
-
-    # check for hitting paddle
     while True:
         img = capture()
         r = find_ball(to_np(img))
 
         if len(r) != 2:       
-            if r[0][0] > 8000:
+            if r[0][0] > 9000:
                 break
             continue
 
@@ -140,28 +137,6 @@ def wait():
         if abs(yy-(y+h)) < 100+p+r:
             time.sleep(.1)
             break
-
-
-    """
-    print('wait2')
-
-    # check for being near wall
-    while True:
-        img = capture()
-        r = find_ball(to_np(img))
-
-        if len(r) == 1:
-            break
-
-        xx,r = r[1][1][0],r[1][2]
-
-        if abs(xx-(x)) < 50+r or abs(xx-(x+w)) < 50+r:
-            continue
-        break
-        
-    """
-    
-    print('wait done')
 
 
 time.sleep(1)
@@ -204,10 +179,6 @@ while True:
 
 
     if len(r1) != 2 or len(r2) != 2:
-        if r1 == r2:
-            print('whyyyyyyyyyyy')
-            find_ball(prev,show=True)
-            break
         continue
 
     prev = to_np(img1)
